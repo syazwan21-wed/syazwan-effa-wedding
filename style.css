@@ -76,160 +76,112 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 .animation-none .cinematic-cloud,.animation-none .spark,.animation-none .cinematic-open,.animation-none .open-card h1,.animation-none .names{animation:none!important}
 @media(prefers-reduced-motion:reduce){.cinematic-cloud,.cinematic-particles,.opening::after{display:none!important}.cinematic-open,.cinematic-open::before,.open-card h1,.names{animation:none!important}.reveal{filter:none!important;opacity:1;transform:none!important}.opening.hidden{transition:none!important}}
 
-/* V3: stronger, clearly visible motion. CSS is appended to override V2. */
-.cinematic-cloud{z-index:2!important;opacity:.68!important;filter:blur(17px)!important;width:95vw!important;height:22vh!important;background:radial-gradient(ellipse at center,rgba(255,255,255,.79) 0%,rgba(255,255,255,.50) 35%,rgba(255,255,255,0) 75%)!important;animation:cloudFloatV3 16s ease-in-out infinite alternate!important;mix-blend-mode:screen}
-.cloud-a{left:-52vw!important;top:23vh!important}.cloud-b{left:50vw!important;right:auto!important;top:64vh!important;animation-duration:21s!important;animation-direction:alternate-reverse!important}
-@keyframes cloudFloatV3{from{transform:translate3d(-8vw,0,0) scale(.94)}to{transform:translate3d(49vw,-5vh,0) scale(1.13)}}
-.cinematic-particles{z-index:8!important}
-.cinematic-particles .spark{background:radial-gradient(circle,#fffdf1 0%,#ffe09a 27%,#c28d35 55%,transparent 78%)!important;box-shadow:0 0 11px 2px rgba(220,157,51,.65)!important;animation-name:sparkRiseV3!important}
-@keyframes sparkRiseV3{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.9}75%{opacity:.82}100%{transform:translate3d(var(--drift),-120vh,0);opacity:0}}
-.names,.open-card h1{background:linear-gradient(100deg,#8a632c 0%,#b78a40 20%,#fff6cf 39%,#d9a94e 47%,#896129 66%,#f7e6a9 84%,#92672d 100%)!important;background-size:300% 100%!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;animation:calligraphyReveal 1.8s ease both,goldShimmerV3 4.5s linear 1.8s infinite!important;filter:drop-shadow(0 1px 2px #fff9)}
-@keyframes goldShimmerV3{from{background-position:100% 0}to{background-position:-200% 0}}
-/* Preserve intentional accessibility and admin no-animation settings */
-.animation-none .cinematic-cloud,.animation-none .spark,.animation-none .names,.animation-none .open-card h1{animation:none!important}
-@media(prefers-reduced-motion:reduce){.cinematic-cloud,.cinematic-particles{display:none!important}.names,.open-card h1{animation:none!important}}
-/* V5: Naturalistic fog layers. Append to bottom of existing style.css. */
-.wedding-cloud-layer,.wedding-real-cloud,.cinematic-cloud{display:none!important}
-.wedding-mist-layer{position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none;contain:layout paint}
-.wedding-mist-layer.mist-opening{position:absolute;z-index:1}
-.wedding-mist{position:absolute;left:-40%;width:180%;height:clamp(130px,25vh,300px);opacity:.65;will-change:transform;filter:blur(13px);animation:mountainMistDrift 52s ease-in-out infinite alternate}
-.wedding-mist svg{width:100%;height:100%;display:block}
-.mist-band-0{top:35%;opacity:.65;animation-duration:58s}
-.mist-band-1{top:54%;opacity:.48;animation-duration:74s;animation-delay:-27s;transform:scaleY(.8)}
-.mist-band-2{top:72%;opacity:.38;animation-duration:65s;animation-delay:-43s}
-@keyframes mountainMistDrift{0%{translate:-7% 0}100%{translate:7% -12px}}
-/* Reduce former oversized particles to fine, restrained gold dust. */
-#cinematicParticles .spark,#cinematicParticles .mist-gold-dust{width:var(--size,1px)!important;height:var(--size,1px)!important;min-width:0!important;min-height:0!important;max-width:2px!important;max-height:2px!important;border-radius:50%!important;background:#c6a05c!important;box-shadow:0 0 2px rgba(186,137,57,.32)!important;filter:none!important;opacity:.52!important}
-#cinematicParticles{pointer-events:none!important}
-#opening .open-card{position:relative;z-index:5}
-.site{position:relative;z-index:4}
-@media(max-width:600px){.wedding-mist{filter:blur(9px)}.mist-band-0{top:39%}.mist-band-1{top:55%}.mist-band-2{top:70%}}
-@media(prefers-reduced-motion:reduce){.wedding-mist{animation:none!important}}
-/* V6: fog VIDEO. Append at the END of style.css; don't replace existing CSS. */
-.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.mist-one,.mist-two {display:none!important}
-.wedding-fog-video{
-  position:fixed;inset:0;width:100%;height:100%;object-fit:cover;
-  pointer-events:none!important;mix-blend-mode:screen;
-  opacity:.78;filter:contrast(1.18) blur(3px);
+
+/* =============================================================
+   V12 CLEAN — real mountain fog BEHIND invitation typography.
+   Replaces the entire conflicting V3–V12 override stack.
+   ============================================================= */
+
+/* Retain the refined calligraphy gold shimmer without V3's fog rules. */
+.names,.open-card h1 {
+  background:linear-gradient(100deg,#8a632c 0%,#b78a40 20%,#fff6cf 39%,#d9a94e 47%,#896129 66%,#f7e6a9 84%,#92672d 100%);
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:calligraphyReveal 1.8s ease both,goldShimmerV12 8s linear 1.8s infinite;
+  filter:drop-shadow(0 1px 2px #fff9);
 }
-.wedding-fog-video.fog-background{z-index:0}
-#opening .wedding-fog-video.fog-opening{position:absolute;z-index:1;opacity:.70}
-#opening .open-card{position:relative;z-index:3}
-.site,.bottom-nav{position:relative;z-index:2}
-.bottom-nav{position:fixed;z-index:10}
-.cinematic-particles{z-index:2;pointer-events:none}
-.cinematic-particles .spark.fog-v6-dust{
-  width:var(--size)!important;height:var(--size)!important;
-  background:#c5a05c!important;box-shadow:none!important;
-  opacity:0;filter:none!important;
+@keyframes goldShimmerV12 {from{background-position:100% 0}to{background-position:-200% 0}}
+
+/* Remove old generated fog, stationary mist and dust from the background.
+   V12's video is the ONLY fog layer. */
+.cinematic-cloud,.mist,.mist-one,.mist-two,.gold-dust {display:none!important}
+
+/* Stacking order: mountain scene -2, veil -1, fog 0,
+   stars 1, invitation 3, opening 50, navigation 20. */
+.wedding-fog-v12 {
+  position:fixed;
+  top:56svh;
+  left:0;
+  width:100%;
+  height:27svh;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:.85;
+  isolation:isolate;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 67%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 67%,transparent 100%);
 }
-/* Turn down legacy fog gradients so they don't obscure the real video */
-.mist,.wedding-mist{display:none!important}
-@media(prefers-reduced-motion:reduce){.wedding-fog-video{display:none!important}}
-/* V7 OVERRIDE: paste at the very END of style.css. Keep the earlier styles intact. */
-.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.mist,.wedding-mist,.mist-one,.mist-two{display:none!important}
-.valley-fog-v7{
-  position:fixed!important; inset:0!important; z-index:1!important;
-  pointer-events:none!important; overflow:hidden!important;
-  /* Fog appears in a narrow middle mountain valley, not over the sky or foreground. */
-  -webkit-mask-image:linear-gradient(to bottom,transparent 31%,#0000 37%,#000 47%,#000 56%,transparent 67%);
-  mask-image:linear-gradient(to bottom,transparent 31%,#0000 37%,#000 47%,#000 56%,transparent 67%);
-  opacity:.36!important; mix-blend-mode:screen;
-}
-.valley-fog-v7 video{
-  position:absolute!important; width:140%!important; height:100%!important;
-  left:-20%!important; top:0!important; object-fit:cover!important;
-  filter:blur(10px) contrast(.72) saturate(.65)!important;
-  animation:valley-fog-drift-v7 58s ease-in-out infinite alternate!important;
-}
-@keyframes valley-fog-drift-v7{from{transform:translateX(-3%) scale(1.04)}to{transform:translateX(3%) scale(1.08)}}
-#opening{isolation:isolate}
-#opening .open-card{position:relative!important;z-index:4!important}
-.site,.bottom-nav{position:relative;z-index:3}
-.bottom-nav{position:fixed!important;z-index:20!important}
-#cinematicParticles{position:fixed!important;inset:0!important;z-index:2!important;pointer-events:none!important}
-#cinematicParticles .spark{display:none!important}
-#cinematicParticles .valley-dust-v7{
-  display:block!important;position:absolute!important;width:1.5px!important;height:1.5px!important;
-  border-radius:50%!important;background:#bb9756!important;box-shadow:none!important;
-  opacity:0;animation:valley-dust-rise-v7 18s linear infinite!important;
-}
-@keyframes valley-dust-rise-v7{0%{transform:translateY(10px);opacity:0}25%{opacity:.4}70%{opacity:.3}100%{transform:translateY(-55px);opacity:0}}
-@media(max-width:700px){.valley-fog-v7{opacity:.26!important;mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%);-webkit-mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%)}}
-@media(prefers-reduced-motion:reduce){.valley-fog-v7 video{animation:none!important}.valley-dust-v7{animation:none!important}}
-/* V8: place at the very end of style.css. Reverses fog and particle regressions. */
-.valley-fog-v7,.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer { display:none!important; }
-#cinematicParticles { position:fixed!important;inset:0!important;z-index:9!important;pointer-events:none!important;overflow:hidden!important;display:block!important; }
-#cinematicParticles .valley-dust-v7,#cinematicParticles .spark { display:none!important; }
-#cinematicParticles .wedding-sparkle-v8 {
-  position:absolute!important;display:block!important;left:var(--sx)!important;top:var(--sy)!important;
-  width:var(--ss)!important;height:var(--ss)!important;border-radius:50%!important;
-  background:#c9a15b!important;box-shadow:0 0 2px rgba(189,141,63,.36)!important;
-  opacity:0;animation:wedding-v8-twinkle var(--st) ease-in-out var(--sd) infinite!important;
-}
-@keyframes wedding-v8-twinkle {0%,100%{opacity:0;transform:translateY(8px) scale(.8)}30%{opacity:.55}60%{opacity:.75;transform:translateY(-12px) scale(1)}85%{opacity:.2}}
-@media(prefers-reduced-motion:reduce){#cinematicParticles .wedding-sparkle-v8{animation:none!important;opacity:.35!important}}
-/* Paste LAST in style.css. V9 overrides V4-V8 fog and sparkle styles. */
-.valley-fog-v7,.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer,.mist,.mist-one,.mist-two {display:none!important}
-.wedding-fog-v9{position:fixed!important;left:0;right:0;top:37vh;height:31vh;z-index:2;pointer-events:none;overflow:hidden;opacity:.28;mix-blend-mode:screen;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 27%,#000 66%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 27%,#000 66%,transparent 100%)}
-.wedding-fog-v9 video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%;filter:grayscale(1) contrast(1.35) brightness(1.08);}
-#cinematicParticles{position:fixed!important;inset:0!important;z-index:9!important;pointer-events:none!important;overflow:hidden!important;display:block!important}
-#cinematicParticles .wedding-sparkle-v8,#cinematicParticles .valley-dust-v7,#cinematicParticles .spark{display:none!important}
-#cinematicParticles .wedding-sparkle-v9{position:absolute!important;display:block!important;left:var(--sx)!important;top:var(--sy)!important;width:var(--ss)!important;height:var(--ss)!important;border-radius:50%!important;background:#dfb65e!important;box-shadow:0 0 5px 1px rgba(222,177,80,.55)!important;opacity:0;animation:wedding-v9-twinkle var(--st) ease-in-out var(--sd) infinite!important}
-@keyframes wedding-v9-twinkle{0%,100%{opacity:0;transform:translateY(7px) scale(.8)}35%{opacity:.85}65%{opacity:.95;transform:translateY(-12px) scale(1)}85%{opacity:.3}}
-@media(prefers-reduced-motion:reduce){.wedding-fog-v9{display:none!important}#cinematicParticles .wedding-sparkle-v9{animation:none!important;opacity:.6!important}}
-/* V10 - Paste at the VERY END of style.css */
-.wedding-fog-video,.valley-fog-v7,.wedding-fog-v9,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer{display:none!important}
-.wedding-fog-v10{position:fixed!important;top:36vh!important;left:0!important;width:100vw!important;height:35vh!important;z-index:5!important;pointer-events:none!important;overflow:hidden!important;display:block!important;opacity:1!important;isolation:isolate!important;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 22%,black 69%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,black 22%,black 69%,transparent 100%)}
-.wedding-fog-v10 .v10-fog-footage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 54%!important;mix-blend-mode:screen!important;filter:grayscale(1) brightness(2.6) contrast(1.4)!important;opacity:.55!important;display:block!important}
-.wedding-fog-v10 .v10-mist{position:absolute!important;inset:5% -45%!important;border-radius:50%!important;filter:blur(34px)!important;opacity:.48!important;mix-blend-mode:screen!important;background:radial-gradient(ellipse 52% 35% at 30% 52%,rgba(250,255,255,.64),transparent 72%),radial-gradient(ellipse 35% 24% at 70% 62%,rgba(242,255,255,.46),transparent 75%);animation:v10-drift 34s ease-in-out infinite alternate!important}
-.wedding-fog-v10 .v10-mist-b{opacity:.30!important;transform:translateX(-15%);animation-duration:48s!important;animation-direction:alternate-reverse!important}
-@keyframes v10-drift{from{translate:-9% 0}to{translate:9% -2%}}
-#cinematicParticles{position:fixed!important;inset:0!important;z-index:99!important;pointer-events:none!important;overflow:hidden!important;display:block!important}
-#cinematicParticles> :not(.wedding-sparkle-v10){display:none!important}
-#cinematicParticles .wedding-sparkle-v10{position:absolute!important;left:var(--sx)!important;top:var(--sy)!important;width:var(--ss)!important;height:var(--ss)!important;display:block!important;border-radius:50%!important;background:radial-gradient(circle,#fff7d3 0%,#edc66e 42%,#b9852b 75%)!important;box-shadow:0 0 7px 2px rgba(222,176,78,.65)!important;opacity:.65;animation:v10-sparkle var(--st) ease-in-out var(--sd) infinite!important}
-@keyframes v10-sparkle{0%,100%{opacity:.15;transform:translateY(4px) scale(.7)}45%{opacity:.95;transform:translateY(-5px) scale(1.1)}70%{opacity:.65;transform:translateY(-10px) scale(.95)}}
-@media(prefers-reduced-motion:reduce){.wedding-fog-v10 .v10-mist,#cinematicParticles .wedding-sparkle-v10{animation:none!important}#cinematicParticles .wedding-sparkle-v10{opacity:.65!important}}
-/* V11: append AFTER all earlier V4-V10 CSS */
-/* Four-point stars instead of circular glowing dots */
-#cinematicParticles .wedding-star-v11 {
-  width:var(--ss)!important;
-  height:var(--ss)!important;
-  border-radius:0!important;
-  background:linear-gradient(135deg,#fff6d6 5%,#f8d782 45%,#c38d31 100%)!important;
-  clip-path:polygon(50% 0%,60% 39%,100% 50%,60% 61%,50% 100%,40% 61%,0% 50%,40% 39%)!important;
-  box-shadow:none!important;
-  filter:drop-shadow(0 0 2px rgba(238,191,90,.65))!important;
-  opacity:.68!important;
-  animation:v11-star-twinkle var(--st) ease-in-out var(--sd) infinite!important;
-}
-@keyframes v11-star-twinkle {
-  0%,100% {opacity:.22;transform:translateY(2px) scale(.72) rotate(0deg)}
-  45% {opacity:.95;transform:translateY(-3px) scale(1.1) rotate(8deg)}
-  75% {opacity:.55;transform:translateY(-5px) scale(.9) rotate(12deg)}
-}
-/* Raise visibility of real footage slightly without thickening artificial patches */
-.wedding-fog-v10 .v10-fog-footage {opacity:.72!important;filter:grayscale(1) brightness(2.2) contrast(1.25)!important}
-.wedding-fog-v10 .v10-mist {opacity:.28!important}
-.wedding-fog-v10 .v10-mist-b {opacity:.18!important}
-@media (prefers-reduced-motion:reduce) {
-  #cinematicParticles .wedding-star-v11 {animation:none!important;opacity:.65!important}
+.wedding-fog-v12 .v12-fog-footage {
+  position:absolute;
+  top:-13%;
+  left:-10%;
+  width:120%;
+  height:126%;
+  display:block;
+  object-fit:cover;
+  object-position:center 54%;
+  opacity:.65;
+  mix-blend-mode:screen;
+  filter:grayscale(1) brightness(1.9) contrast(1.12) blur(2px);
+  /* The center is clear so real footage stays at the mountain edges. */
+  -webkit-mask-image:radial-gradient(ellipse 38% 80% at 50% 48%,transparent 0%,transparent 43%,rgba(0,0,0,.35) 70%,#000 100%);
+  mask-image:radial-gradient(ellipse 38% 80% at 50% 48%,transparent 0%,transparent 43%,rgba(0,0,0,.35) 70%,#000 100%);
 }
 
-/* V12 — Clear wedding names while retaining valley fog */
-video[src*="valley-fog"] {
-  -webkit-mask-image: radial-gradient(
-    ellipse 32% 39% at 50% 48%,
-    transparent 0%,
-    transparent 55%,
-    rgba(0,0,0,.45) 82%,
-    black 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 32% 39% at 50% 48%,
-    transparent 0%,
-    transparent 55%,
-    rgba(0,0,0,.45) 82%,
-    black 100%
-  );
+/* Keep the invitation in FRONT of both fog and gold stars. */
+.site {position:relative;z-index:3}
+.hero {isolation:isolate}
+.hero::before {
+  /* Gentle reading halo for the hero names, date and time. */
+  background:radial-gradient(ellipse 72% 54% at 50% 50%,rgba(255,250,240,.87) 0%,rgba(255,250,240,.62) 45%,transparent 86%);
+  z-index:-1;
+}
+#hero .eyebrow,#hero .names,#hero .hero-date,#hero #heroTime {
+  position:relative;
+  z-index:1;
+}
+#hero .hero-date,#hero #heroTime {
+  text-shadow:0 1px 11px rgba(255,255,255,.98),0 0 19px rgba(255,255,255,.94);
+}
+.panel {position:relative;z-index:1}
+.bottom-nav {position:fixed;z-index:20}
+
+/* Keep the selected four-point stars, but never let them cover text. */
+#cinematicParticles {
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  overflow:hidden;
+}
+#cinematicParticles .wedding-star-v12 {
+  position:absolute;
+  left:var(--sx);
+  top:var(--sy);
+  width:var(--ss);
+  height:var(--ss);
+  border-radius:0;
+  background:linear-gradient(135deg,#fff8db 4%,#f5d47d 47%,#bd8730 100%);
+  clip-path:polygon(50% 0%,60% 39%,100% 50%,60% 61%,50% 100%,40% 61%,0% 50%,40% 39%);
+  filter:drop-shadow(0 0 2px rgba(225,173,76,.6));
+  opacity:.7;
+  animation:v12-star-twinkle var(--st) ease-in-out var(--sd) infinite;
+}
+@keyframes v12-star-twinkle {
+  0%,100% {opacity:.24;transform:translateY(2px) scale(.77) rotate(0)}
+  45% {opacity:.9;transform:translateY(-3px) scale(1.07) rotate(8deg)}
+  75% {opacity:.55;transform:translateY(-5px) scale(.91) rotate(12deg)}
+}
+
+/* Respect the existing animation controls and system accessibility setting. */
+.animation-none .wedding-fog-v12 {display:none!important}
+.animation-none .wedding-star-v12 {animation:none!important;opacity:.45!important}
+.animation-none .names,.animation-none .open-card h1 {animation:none!important}
+@media(prefers-reduced-motion:reduce) {
+  .wedding-fog-v12 {display:none!important}
+  #cinematicParticles .wedding-star-v12 {animation:none!important;opacity:.45!important}
+  .names,.open-card h1 {animation:none!important}
 }
