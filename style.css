@@ -215,3 +215,21 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 @media (prefers-reduced-motion:reduce) {
   #cinematicParticles .wedding-star-v11 {animation:none!important;opacity:.65!important}
 }
+
+/* V12 — Clear wedding names while retaining valley fog */
+video[src*="valley-fog"] {
+  -webkit-mask-image: radial-gradient(
+    ellipse 32% 39% at 50% 48%,
+    transparent 0%,
+    transparent 55%,
+    rgba(0,0,0,.45) 82%,
+    black 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 32% 39% at 50% 48%,
+    transparent 0%,
+    transparent 55%,
+    rgba(0,0,0,.45) 82%,
+    black 100%
+  );
+}
