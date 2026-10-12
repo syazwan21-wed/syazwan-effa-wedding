@@ -157,3 +157,15 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 @keyframes valley-dust-rise-v7{0%{transform:translateY(10px);opacity:0}25%{opacity:.4}70%{opacity:.3}100%{transform:translateY(-55px);opacity:0}}
 @media(max-width:700px){.valley-fog-v7{opacity:.26!important;mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%);-webkit-mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%)}}
 @media(prefers-reduced-motion:reduce){.valley-fog-v7 video{animation:none!important}.valley-dust-v7{animation:none!important}}
+/* V8: place at the very end of style.css. Reverses fog and particle regressions. */
+.valley-fog-v7,.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer { display:none!important; }
+#cinematicParticles { position:fixed!important;inset:0!important;z-index:9!important;pointer-events:none!important;overflow:hidden!important;display:block!important; }
+#cinematicParticles .valley-dust-v7,#cinematicParticles .spark { display:none!important; }
+#cinematicParticles .wedding-sparkle-v8 {
+  position:absolute!important;display:block!important;left:var(--sx)!important;top:var(--sy)!important;
+  width:var(--ss)!important;height:var(--ss)!important;border-radius:50%!important;
+  background:#c9a15b!important;box-shadow:0 0 2px rgba(189,141,63,.36)!important;
+  opacity:0;animation:wedding-v8-twinkle var(--st) ease-in-out var(--sd) infinite!important;
+}
+@keyframes wedding-v8-twinkle {0%,100%{opacity:0;transform:translateY(8px) scale(.8)}30%{opacity:.55}60%{opacity:.75;transform:translateY(-12px) scale(1)}85%{opacity:.2}}
+@media(prefers-reduced-motion:reduce){#cinematicParticles .wedding-sparkle-v8{animation:none!important;opacity:.35!important}}
