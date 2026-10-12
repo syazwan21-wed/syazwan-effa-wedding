@@ -190,3 +190,28 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 #cinematicParticles .wedding-sparkle-v10{position:absolute!important;left:var(--sx)!important;top:var(--sy)!important;width:var(--ss)!important;height:var(--ss)!important;display:block!important;border-radius:50%!important;background:radial-gradient(circle,#fff7d3 0%,#edc66e 42%,#b9852b 75%)!important;box-shadow:0 0 7px 2px rgba(222,176,78,.65)!important;opacity:.65;animation:v10-sparkle var(--st) ease-in-out var(--sd) infinite!important}
 @keyframes v10-sparkle{0%,100%{opacity:.15;transform:translateY(4px) scale(.7)}45%{opacity:.95;transform:translateY(-5px) scale(1.1)}70%{opacity:.65;transform:translateY(-10px) scale(.95)}}
 @media(prefers-reduced-motion:reduce){.wedding-fog-v10 .v10-mist,#cinematicParticles .wedding-sparkle-v10{animation:none!important}#cinematicParticles .wedding-sparkle-v10{opacity:.65!important}}
+/* V11: append AFTER all earlier V4-V10 CSS */
+/* Four-point stars instead of circular glowing dots */
+#cinematicParticles .wedding-star-v11 {
+  width:var(--ss)!important;
+  height:var(--ss)!important;
+  border-radius:0!important;
+  background:linear-gradient(135deg,#fff6d6 5%,#f8d782 45%,#c38d31 100%)!important;
+  clip-path:polygon(50% 0%,60% 39%,100% 50%,60% 61%,50% 100%,40% 61%,0% 50%,40% 39%)!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 0 2px rgba(238,191,90,.65))!important;
+  opacity:.68!important;
+  animation:v11-star-twinkle var(--st) ease-in-out var(--sd) infinite!important;
+}
+@keyframes v11-star-twinkle {
+  0%,100% {opacity:.22;transform:translateY(2px) scale(.72) rotate(0deg)}
+  45% {opacity:.95;transform:translateY(-3px) scale(1.1) rotate(8deg)}
+  75% {opacity:.55;transform:translateY(-5px) scale(.9) rotate(12deg)}
+}
+/* Raise visibility of real footage slightly without thickening artificial patches */
+.wedding-fog-v10 .v10-fog-footage {opacity:.72!important;filter:grayscale(1) brightness(2.2) contrast(1.25)!important}
+.wedding-fog-v10 .v10-mist {opacity:.28!important}
+.wedding-fog-v10 .v10-mist-b {opacity:.18!important}
+@media (prefers-reduced-motion:reduce) {
+  #cinematicParticles .wedding-star-v11 {animation:none!important;opacity:.65!important}
+}
