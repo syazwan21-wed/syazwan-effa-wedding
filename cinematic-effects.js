@@ -1,41 +1,33 @@
-/* Wedding Studio V6: actual moving fog VIDEO, no database changes. */
+/* Syazwan & Effa V7: restrained valley fog, using the existing fog-overlay.mp4 */
 (() => {
-  function install() {
-    // Remove old JS-generated clouds and mist. Prevent prior script from competing.
-    document.querySelectorAll('.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud').forEach(el=>el.remove());
-    document.querySelectorAll('.wedding-fog-video').forEach(el=>el.remove());
-    function addFog(parent, isOpening) {
-      if (!parent) return;
-      const video = document.createElement('video');
-      video.className = 'wedding-fog-video' + (isOpening ? ' fog-opening' : ' fog-background');
-      video.setAttribute('aria-hidden','true');
-      video.setAttribute('playsinline','');
-      video.setAttribute('muted','');
-      video.setAttribute('autoplay','');
-      video.setAttribute('loop','');
-      video.muted=true; video.loop=true; video.autoplay=true; video.playsInline=true;
-      video.preload='auto';
-      video.src='fog-overlay.mp4';
-      parent.appendChild(video);
-      video.play().catch(()=>{ /* muted autoplay is normally allowed; user interaction can retry */ });
-      document.addEventListener('pointerdown',()=>{if(video.paused) video.play().catch(()=>{});},{once:true});
-    }
-    addFog(document.body,false);
-    addFog(document.getElementById('opening'),true);
-    // Rebuild dust as very small, faint points rather than big glowing orbs.
-    const particles=document.getElementById('cinematicParticles');
-    if(particles){
+  function init() {
+    document.querySelectorAll('.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud').forEach(el => el.remove());
+    // A single low, masked layer avoids double exposure on the cover.
+    const fog = document.createElement('div');
+    fog.className = 'valley-fog-v7';
+    fog.setAttribute('aria-hidden','true');
+    const video = document.createElement('video');
+    video.src = 'fog-overlay.mp4';
+    video.muted = true; video.autoplay = true; video.loop = true; video.playsInline = true;
+    video.preload = 'metadata';
+    video.setAttribute('muted',''); video.setAttribute('playsinline','');
+    fog.appendChild(video);
+    document.body.appendChild(fog);
+    video.play().catch(() => {});
+    document.addEventListener('pointerdown', () => { if (video.paused) video.play().catch(()=>{}); }, {once:true});
+    // Remove older oversized sparkle layers and replace with a handful of tiny dust motes.
+    const particles = document.getElementById('cinematicParticles');
+    if (particles) {
       particles.replaceChildren();
-      for(let i=0;i<26;i++){
-        const s=document.createElement('span'); s.className='spark fog-v6-dust';
-        s.style.setProperty('--x', ((i*37.71+13)%100)+'%');
-        s.style.setProperty('--size', (i%3===0?'1.5px':'1px'));
-        s.style.setProperty('--duration', (14+(i%8)*2)+'s');
-        s.style.setProperty('--delay', (-i*.85)+'s');
-        s.style.setProperty('--drift', (((i%7)-3)*11)+'px');
-        particles.appendChild(s);
+      for(let i=0;i<18;i++) {
+        const dot=document.createElement('span'); dot.className='valley-dust-v7';
+        dot.style.left=((i*47.31+7)%100)+'%';
+        dot.style.top=((i*29.17+14)%90)+'%';
+        dot.style.animationDelay=(-i*1.7)+'s';
+        dot.style.animationDuration=(13+i%7*3)+'s';
+        particles.appendChild(dot);
       }
     }
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
