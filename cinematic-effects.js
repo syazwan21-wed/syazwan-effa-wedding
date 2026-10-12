@@ -1,33 +1,29 @@
-/* Syazwan & Effa V7: restrained valley fog, using the existing fog-overlay.mp4 */
+/* V8: clean sparkle restoration. Does not modify Supabase or guest features. */
 (() => {
   function init() {
-    document.querySelectorAll('.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud').forEach(el => el.remove());
-    // A single low, masked layer avoids double exposure on the cover.
-    const fog = document.createElement('div');
-    fog.className = 'valley-fog-v7';
-    fog.setAttribute('aria-hidden','true');
-    const video = document.createElement('video');
-    video.src = 'fog-overlay.mp4';
-    video.muted = true; video.autoplay = true; video.loop = true; video.playsInline = true;
-    video.preload = 'metadata';
-    video.setAttribute('muted',''); video.setAttribute('playsinline','');
-    fog.appendChild(video);
-    document.body.appendChild(fog);
-    video.play().catch(() => {});
-    document.addEventListener('pointerdown', () => { if (video.paused) video.play().catch(()=>{}); }, {once:true});
-    // Remove older oversized sparkle layers and replace with a handful of tiny dust motes.
-    const particles = document.getElementById('cinematicParticles');
-    if (particles) {
-      particles.replaceChildren();
-      for(let i=0;i<18;i++) {
-        const dot=document.createElement('span'); dot.className='valley-dust-v7';
-        dot.style.left=((i*47.31+7)%100)+'%';
-        dot.style.top=((i*29.17+14)%90)+'%';
-        dot.style.animationDelay=(-i*1.7)+'s';
-        dot.style.animationDuration=(13+i%7*3)+'s';
-        particles.appendChild(dot);
-      }
+    document.querySelectorAll('.valley-fog-v7,.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer').forEach(el => el.remove());
+    let holder = document.getElementById('cinematicParticles');
+    if (!holder) {
+      holder = document.createElement('div');
+      holder.id = 'cinematicParticles';
+      holder.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(holder);
     }
+    holder.replaceChildren();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 48; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'wedding-sparkle-v8';
+      dot.style.setProperty('--sx', ((i * 61.8034 + 11) % 100).toFixed(2) + '%');
+      dot.style.setProperty('--sy', ((i * 37.119 + 7) % 94).toFixed(2) + '%');
+      dot.style.setProperty('--sd', (-i * 0.61).toFixed(2) + 's');
+      dot.style.setProperty('--st', (6 + (i % 7) * 1.1).toFixed(2) + 's');
+      dot.style.setProperty('--ss', (i % 5 === 0 ? 2 : 1.3) + 'px');
+      frag.appendChild(dot);
+    }
+    holder.appendChild(frag);
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+  else init();
 })();
