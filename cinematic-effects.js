@@ -1,21 +1,18 @@
-/* V9: real footage, visually confined to valley band; visible gold sparkles. */
-(() => {
+/* V10: visible valley fog, brighter gold sparkles, and safe fallback. */
+(()=>{
  function init(){
-  document.querySelectorAll('.wedding-fog-video,.valley-fog-v7,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer,.wedding-fog-v9').forEach(el=>el.remove());
-  const fog=document.createElement('div'); fog.className='wedding-fog-v9';fog.setAttribute('aria-hidden','true');
-  const vid=document.createElement('video');vid.src='valley-fog-v9.mp4';vid.autoplay=true;vid.loop=true;vid.muted=true;vid.playsInline=true;vid.preload='metadata';vid.setAttribute('muted','');vid.setAttribute('playsinline','');
-  fog.appendChild(vid);document.body.appendChild(fog);vid.play().catch(()=>{});
+  document.querySelectorAll('.wedding-fog-video,.valley-fog-v7,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.cinematic-cloud-layer,.wedding-fog-v9,.wedding-fog-v10').forEach(e=>e.remove());
+  const fog=document.createElement('div');fog.className='wedding-fog-v10';fog.setAttribute('aria-hidden','true');
+  fog.innerHTML='<div class="v10-mist v10-mist-a"></div><div class="v10-mist v10-mist-b"></div><video class="v10-fog-footage" autoplay muted loop playsinline preload="auto"><source src="valley-fog-v9.mp4" type="video/mp4"></video>';
+  document.body.appendChild(fog);
+  const video=fog.querySelector('video');video.addEventListener('error',()=>{video.style.display='none'});video.play().catch(()=>{video.style.display='none'});
   let holder=document.getElementById('cinematicParticles');if(!holder){holder=document.createElement('div');holder.id='cinematicParticles';document.body.appendChild(holder)}
   holder.setAttribute('aria-hidden','true');holder.replaceChildren();
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){vid.pause();return}
-  const frag=document.createDocumentFragment();for(let i=0;i<44;i++){
-    const dot=document.createElement('span');dot.className='wedding-sparkle-v9';
-    dot.style.setProperty('--sx',((i*61.8034+11)%100).toFixed(2)+'%');
-    dot.style.setProperty('--sy',((i*37.119+7)%94).toFixed(2)+'%');
-    dot.style.setProperty('--sd',(-i*.67).toFixed(2)+'s');
-    dot.style.setProperty('--st',(5+(i%7)*.9).toFixed(2)+'s');
-    dot.style.setProperty('--ss',(i%4===0?4:3)+'px');frag.appendChild(dot)
-  }holder.appendChild(frag)
+  const fragment=document.createDocumentFragment();for(let i=0;i<62;i++){
+   const dot=document.createElement('i');dot.className='wedding-sparkle-v10';
+   dot.style.cssText=`--sx:${((i*61.8034+11)%100).toFixed(2)}%;--sy:${((i*37.119+7)%94).toFixed(2)}%;--sd:${(-i*.43).toFixed(2)}s;--st:${(4+(i%6)*.8).toFixed(2)}s;--ss:${i%5===0?7:i%3===0?6:5}px`;
+   fragment.appendChild(dot)
+  }holder.appendChild(fragment);
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init()
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
