@@ -1,0 +1,18 @@
+/* V4 — visible watercolor clouds, placed above background and below invitation text */
+.wedding-cloud-layer{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden;isolation:isolate}
+.wedding-cloud-opening{position:absolute;z-index:1;inset:0}
+.wedding-real-cloud{position:absolute;width:clamp(320px,72vw,750px);height:auto;filter:drop-shadow(0 10px 17px rgba(58,112,115,.12));opacity:.88;will-change:transform;animation:cloudTraverse 27s linear infinite}
+.wedding-real-cloud svg{display:block;width:100%;height:auto}
+.cloud-path-0{top:15%;left:-80vw;animation-duration:28s;animation-delay:-13s}
+.cloud-path-1{top:38%;left:-80vw;animation-duration:36s;animation-delay:-26s;opacity:.73;transform:scale(.72)}
+.cloud-path-2{top:63%;left:-80vw;animation-duration:32s;animation-delay:-4s;opacity:.78}
+.cloud-path-3{top:79%;left:-80vw;animation-duration:42s;animation-delay:-31s;opacity:.66}
+@keyframes cloudTraverse{from{translate:-35vw 0}to{translate:220vw 0}}
+/* Keep the opening card and text above the cloud layer */
+#opening .open-card{position:relative;z-index:4}
+.site{position:relative;z-index:4;pointer-events:none}
+.site a,.site button,.site input,.site select,.site textarea,.site form,.site label{pointer-events:auto}
+.bottom-nav{z-index:20}
+/* Old gradient clouds are suppressed so they don't obscure the illustrated clouds */
+.cinematic-cloud{display:none!important}
+@media(prefers-reduced-motion:reduce){.wedding-real-cloud{animation:none!important;translate:75vw 0}}
