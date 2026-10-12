@@ -88,3 +88,20 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 /* Preserve intentional accessibility and admin no-animation settings */
 .animation-none .cinematic-cloud,.animation-none .spark,.animation-none .names,.animation-none .open-card h1{animation:none!important}
 @media(prefers-reduced-motion:reduce){.cinematic-cloud,.cinematic-particles{display:none!important}.names,.open-card h1{animation:none!important}}
+/* V5: Naturalistic fog layers. Append to bottom of existing style.css. */
+.wedding-cloud-layer,.wedding-real-cloud,.cinematic-cloud{display:none!important}
+.wedding-mist-layer{position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none;contain:layout paint}
+.wedding-mist-layer.mist-opening{position:absolute;z-index:1}
+.wedding-mist{position:absolute;left:-40%;width:180%;height:clamp(130px,25vh,300px);opacity:.65;will-change:transform;filter:blur(13px);animation:mountainMistDrift 52s ease-in-out infinite alternate}
+.wedding-mist svg{width:100%;height:100%;display:block}
+.mist-band-0{top:35%;opacity:.65;animation-duration:58s}
+.mist-band-1{top:54%;opacity:.48;animation-duration:74s;animation-delay:-27s;transform:scaleY(.8)}
+.mist-band-2{top:72%;opacity:.38;animation-duration:65s;animation-delay:-43s}
+@keyframes mountainMistDrift{0%{translate:-7% 0}100%{translate:7% -12px}}
+/* Reduce former oversized particles to fine, restrained gold dust. */
+#cinematicParticles .spark,#cinematicParticles .mist-gold-dust{width:var(--size,1px)!important;height:var(--size,1px)!important;min-width:0!important;min-height:0!important;max-width:2px!important;max-height:2px!important;border-radius:50%!important;background:#c6a05c!important;box-shadow:0 0 2px rgba(186,137,57,.32)!important;filter:none!important;opacity:.52!important}
+#cinematicParticles{pointer-events:none!important}
+#opening .open-card{position:relative;z-index:5}
+.site{position:relative;z-index:4}
+@media(max-width:600px){.wedding-mist{filter:blur(9px)}.mist-band-0{top:39%}.mist-band-1{top:55%}.mist-band-2{top:70%}}
+@media(prefers-reduced-motion:reduce){.wedding-mist{animation:none!important}}
