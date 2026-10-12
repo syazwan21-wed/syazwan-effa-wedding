@@ -126,3 +126,34 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 /* Turn down legacy fog gradients so they don't obscure the real video */
 .mist,.wedding-mist{display:none!important}
 @media(prefers-reduced-motion:reduce){.wedding-fog-video{display:none!important}}
+/* V7 OVERRIDE: paste at the very END of style.css. Keep the earlier styles intact. */
+.wedding-fog-video,.wedding-cloud-layer,.wedding-mist-layer,.cinematic-cloud,.mist,.wedding-mist,.mist-one,.mist-two{display:none!important}
+.valley-fog-v7{
+  position:fixed!important; inset:0!important; z-index:1!important;
+  pointer-events:none!important; overflow:hidden!important;
+  /* Fog appears in a narrow middle mountain valley, not over the sky or foreground. */
+  -webkit-mask-image:linear-gradient(to bottom,transparent 31%,#0000 37%,#000 47%,#000 56%,transparent 67%);
+  mask-image:linear-gradient(to bottom,transparent 31%,#0000 37%,#000 47%,#000 56%,transparent 67%);
+  opacity:.36!important; mix-blend-mode:screen;
+}
+.valley-fog-v7 video{
+  position:absolute!important; width:140%!important; height:100%!important;
+  left:-20%!important; top:0!important; object-fit:cover!important;
+  filter:blur(10px) contrast(.72) saturate(.65)!important;
+  animation:valley-fog-drift-v7 58s ease-in-out infinite alternate!important;
+}
+@keyframes valley-fog-drift-v7{from{transform:translateX(-3%) scale(1.04)}to{transform:translateX(3%) scale(1.08)}}
+#opening{isolation:isolate}
+#opening .open-card{position:relative!important;z-index:4!important}
+.site,.bottom-nav{position:relative;z-index:3}
+.bottom-nav{position:fixed!important;z-index:20!important}
+#cinematicParticles{position:fixed!important;inset:0!important;z-index:2!important;pointer-events:none!important}
+#cinematicParticles .spark{display:none!important}
+#cinematicParticles .valley-dust-v7{
+  display:block!important;position:absolute!important;width:1.5px!important;height:1.5px!important;
+  border-radius:50%!important;background:#bb9756!important;box-shadow:none!important;
+  opacity:0;animation:valley-dust-rise-v7 18s linear infinite!important;
+}
+@keyframes valley-dust-rise-v7{0%{transform:translateY(10px);opacity:0}25%{opacity:.4}70%{opacity:.3}100%{transform:translateY(-55px);opacity:0}}
+@media(max-width:700px){.valley-fog-v7{opacity:.26!important;mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%);-webkit-mask-image:linear-gradient(to bottom,transparent 34%,#000 45%,#000 55%,transparent 66%)}}
+@media(prefers-reduced-motion:reduce){.valley-fog-v7 video{animation:none!important}.valley-dust-v7{animation:none!important}}
