@@ -21,3 +21,22 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 .counter>div{background:rgba(255,255,255,.42);border:1px solid #b39a6e66}.counter b{font-family:var(--font-title);font-size:31px}.qr{box-shadow:0 8px 24px #5552;border:1px solid #d7c3a0}
 .animation-none .scene svg,.animation-none .mist,.animation-none .gold-dust,.animation-none .lake-shimmer,.animation-none .hero-ornament,.animation-none .names{animation:none!important}
 @media(prefers-reduced-motion:reduce){.scene svg,.mist,.gold-dust,.lake-shimmer,.names{animation:none!important}}
+
+/* Syazwan & Effa watercolor mountain edition — background is editable from admin. */
+.scene{background:#f6eee4 url('mountain-watercolor.jpg') center center/cover no-repeat}
+.scene::before{content:'';position:absolute;inset:-3%;background:url('mountain-watercolor.jpg') center center/cover no-repeat;animation:mountainBreath 24s ease-in-out infinite alternate;pointer-events:none}
+.scene>svg{opacity:0;pointer-events:none}
+/* Uploaded custom image/video from admin takes precedence over this default. */
+.scene:has(.custom-bg)::before{display:none}
+.scene:has(.custom-bg)>.custom-bg{z-index:2}
+@keyframes mountainBreath{from{transform:scale(1)}to{transform:scale(1.055) translateY(-.5%)}}
+.veil{background:linear-gradient(180deg,rgba(255,249,239,.12),rgba(255,255,255,.09) 40%,rgba(244,247,240,.33))}
+.opening{background:linear-gradient(180deg,rgba(255,250,242,.20),rgba(230,241,239,.18)),url('mountain-watercolor.jpg') center/cover no-repeat}
+.open-card{background:rgba(255,252,246,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.names,.open-card h1{font-family:'Great Vibes',cursive!important;font-weight:400;line-height:1.16!important;letter-spacing:0!important;color:var(--accent)}
+.names{font-size:clamp(62px,14vw,90px)!important}
+.open-card h1{font-size:clamp(53px,12vw,78px)!important}
+.hero .eyebrow,.hero-date,.hero #heroTime{text-shadow:0 1px 13px #fff,0 0 25px #fff}
+.hero:before{background:radial-gradient(ellipse,rgba(255,251,240,.63),transparent 72%)}
+.panel{background:rgba(255,253,248,.83)}
+@media(prefers-reduced-motion:reduce){.scene::before{animation:none}}
