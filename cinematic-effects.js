@@ -1,24 +1,25 @@
-/* Wedding Studio V4 — illustrated cloud layers, independent of background and Supabase. */
+/* Wedding Studio V5: natural mountain mist + tiny gold dust. No external dependencies. */
 (()=>{
-  function init(){
-    document.querySelectorAll('.wedding-cloud-layer').forEach(el=>el.remove());
-    const svgCloud = (i)=>`<svg viewBox="0 0 620 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="wc${i}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffffff" stop-opacity=".96"/><stop offset=".58" stop-color="#f6ffff" stop-opacity=".90"/><stop offset="1" stop-color="#d8e9e7" stop-opacity=".34"/></linearGradient></defs><path d="M15 131 Q40 112 89 116 Q111 78 157 83 Q184 38 246 48 Q289 5 350 46 Q396 31 434 74 Q482 59 511 99 Q574 88 605 132 Q574 153 519 149 L102 155 Q38 153 15 131Z" fill="url(#wc${i})" stroke="#fff" stroke-opacity=".55" stroke-width="2"/></svg>`;
-    function addLayer(parent,opening){
-      if(!parent)return;
-      const layer=document.createElement('div'); layer.className='wedding-cloud-layer'+(opening?' wedding-cloud-opening':'');
-      layer.setAttribute('aria-hidden','true');
-      for(let i=0;i<4;i++){
-        const cloud=document.createElement('div');cloud.className='wedding-real-cloud cloud-path-'+i;
-        cloud.innerHTML=svgCloud(i);layer.appendChild(cloud);
-      }
-      parent.appendChild(layer);
-    }
-    addLayer(document.body,false);
-    const opening=document.getElementById('opening');
-    if(opening)addLayer(opening,true);
-    // Retain floating particles if the original layer is present.
-    const holder=document.getElementById('cinematicParticles');
-    if(holder){holder.replaceChildren();for(let i=0;i<48;i++){const p=document.createElement('span');p.className='spark';p.style.setProperty('--x',((i*61.8)%100)+'%');p.style.setProperty('--size',(3+(i%5))+'px');p.style.setProperty('--duration',(9+(i%8)*1.6)+'s');p.style.setProperty('--delay',(-i*.73)+'s');p.style.setProperty('--drift',(((i%7)-3)*32)+'px');holder.appendChild(p)}}
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+ const start=()=>{
+  document.querySelectorAll('.wedding-cloud-layer,.wedding-mist-layer').forEach(el=>el.remove());
+  const create=(parent,opening)=>{
+   if(!parent)return;
+   const wrap=document.createElement('div');wrap.className='wedding-mist-layer'+(opening?' mist-opening':'');wrap.setAttribute('aria-hidden','true');
+   for(let i=0;i<3;i++){
+    const layer=document.createElement('div');layer.className='wedding-mist mist-band-'+i;
+    layer.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="none"><defs><filter id="mistnoise-${opening?'o':'p'}-${i}" x="-25%" y="-80%" width="150%" height="260%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.045" numOctaves="3" seed="${i+4}" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="56" xChannelSelector="R" yChannelSelector="G"/></filter><linearGradient id="mistgrad-${opening?'o':'p'}-${i}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".28" stop-color="#fff" stop-opacity=".36"/><stop offset=".52" stop-color="#fff" stop-opacity=".78"/><stop offset=".75" stop-color="#f2faf8" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path d="M0 150 C120 115 180 185 300 142 S510 115 620 152 S820 108 930 148 S1090 122 1200 150 L1200 270 L0 270Z" fill="url(#mistgrad-${opening?'o':'p'}-${i})" filter="url(#mistnoise-${opening?'o':'p'}-${i})"/></svg>`;
+    wrap.appendChild(layer);
+   }
+   parent.appendChild(wrap);
+  };
+  create(document.body,false);create(document.getElementById('opening'),true);
+  const holder=document.getElementById('cinematicParticles');
+  if(holder){holder.replaceChildren();for(let i=0;i<34;i++){
+   const p=document.createElement('span');p.className='spark mist-gold-dust';
+   p.style.setProperty('--x',((i*47.31+11)%100)+'%');p.style.setProperty('--size',((i%3===0)?1.5:1)+'px');
+   p.style.setProperty('--duration',(13+i%9*1.7)+'s');p.style.setProperty('--delay',(-i*.93)+'s');
+   p.style.setProperty('--drift',(((i%7)-3)*13)+'px');holder.appendChild(p);
+  }}
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
