@@ -75,3 +75,16 @@ body{background:#cadbd5} .scene{background:#a9c5bf;filter:saturate(.88) contrast
 .animation-fade .panel.reveal{transform:none}.animation-slide .panel.reveal{transform:translateX(-45px)}.animation-zoom .panel.reveal{transform:scale(.92)}
 .animation-none .cinematic-cloud,.animation-none .spark,.animation-none .cinematic-open,.animation-none .open-card h1,.animation-none .names{animation:none!important}
 @media(prefers-reduced-motion:reduce){.cinematic-cloud,.cinematic-particles,.opening::after{display:none!important}.cinematic-open,.cinematic-open::before,.open-card h1,.names{animation:none!important}.reveal{filter:none!important;opacity:1;transform:none!important}.opening.hidden{transition:none!important}}
+
+/* V3: stronger, clearly visible motion. CSS is appended to override V2. */
+.cinematic-cloud{z-index:2!important;opacity:.68!important;filter:blur(17px)!important;width:95vw!important;height:22vh!important;background:radial-gradient(ellipse at center,rgba(255,255,255,.79) 0%,rgba(255,255,255,.50) 35%,rgba(255,255,255,0) 75%)!important;animation:cloudFloatV3 16s ease-in-out infinite alternate!important;mix-blend-mode:screen}
+.cloud-a{left:-52vw!important;top:23vh!important}.cloud-b{left:50vw!important;right:auto!important;top:64vh!important;animation-duration:21s!important;animation-direction:alternate-reverse!important}
+@keyframes cloudFloatV3{from{transform:translate3d(-8vw,0,0) scale(.94)}to{transform:translate3d(49vw,-5vh,0) scale(1.13)}}
+.cinematic-particles{z-index:8!important}
+.cinematic-particles .spark{background:radial-gradient(circle,#fffdf1 0%,#ffe09a 27%,#c28d35 55%,transparent 78%)!important;box-shadow:0 0 11px 2px rgba(220,157,51,.65)!important;animation-name:sparkRiseV3!important}
+@keyframes sparkRiseV3{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.9}75%{opacity:.82}100%{transform:translate3d(var(--drift),-120vh,0);opacity:0}}
+.names,.open-card h1{background:linear-gradient(100deg,#8a632c 0%,#b78a40 20%,#fff6cf 39%,#d9a94e 47%,#896129 66%,#f7e6a9 84%,#92672d 100%)!important;background-size:300% 100%!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;animation:calligraphyReveal 1.8s ease both,goldShimmerV3 4.5s linear 1.8s infinite!important;filter:drop-shadow(0 1px 2px #fff9)}
+@keyframes goldShimmerV3{from{background-position:100% 0}to{background-position:-200% 0}}
+/* Preserve intentional accessibility and admin no-animation settings */
+.animation-none .cinematic-cloud,.animation-none .spark,.animation-none .names,.animation-none .open-card h1{animation:none!important}
+@media(prefers-reduced-motion:reduce){.cinematic-cloud,.cinematic-particles{display:none!important}.names,.open-card h1{animation:none!important}}
