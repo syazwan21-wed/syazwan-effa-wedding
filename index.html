@@ -1,50 +1,508 @@
-<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e7efee"><title>Walimatulurus | Syazwan & Effa</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@400;600&family=Amiri&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css?v=12"><link rel="stylesheet" href="opening-cinematic-v13.css?v=13"><link rel="stylesheet" href="main-invitation-v14.css?v=14"><link rel="stylesheet" href="ecard-typography-v15.css?v=15"></head><body>
-<div id="scene" class="scene"><svg viewBox="0 0 1000 1400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d8e8e8"/><stop offset=".55" stop-color="#e7f0e9"/><stop offset="1" stop-color="#9ab6b0"/></linearGradient><linearGradient id="water" x2="0" y2="1"><stop stop-color="#b3cecb"/><stop offset="1" stop-color="#749d9c"/></linearGradient></defs><rect width="1000" height="1400" fill="url(#sky)"/><g class="cloud"><ellipse cx="210" cy="260" rx="230" ry="50" fill="#fff" opacity=".4"/><ellipse cx="780" cy="390" rx="280" ry="65" fill="#fff" opacity=".35"/></g><path d="M0 850L130 550 260 700 430 380 630 730 800 440 1000 790V1400H0Z" fill="#a7bcb2"/><path d="M0 870L230 650 320 720 480 510 620 760 800 570 1000 790V1400H0Z" fill="#718e85" opacity=".67"/><path d="M0 920Q260 870 500 910T1000 900V1400H0Z" fill="url(#water)"/><g class="ripples" fill="none" stroke="#effaf2" opacity=".27" stroke-width="3"><path d="M50 1030Q320 1010 600 1030T1000 1020"/><path d="M-40 1110Q270 1090 580 1110T1040 1100"/><path d="M30 1210Q280 1190 530 1210T1000 1200"/><path d="M-40 1310Q300 1290 650 1310T1040 1300"/></g><path d="M0 960Q100 870 220 925L160 1400H0Z" fill="#547d72" opacity=".6"/><path d="M1000 980Q860 860 790 940L880 1400H1000Z" fill="#567e74" opacity=".6"/></svg></div><div class="lake-shimmer" aria-hidden="true"></div><div class="mist mist-one" aria-hidden="true"></div><div class="mist mist-two" aria-hidden="true"></div><div class="gold-dust" aria-hidden="true"></div><div id="overlay" class="veil"></div><div class="cinematic-cloud cloud-a" aria-hidden="true"></div><div class="cinematic-cloud cloud-b" aria-hidden="true"></div><div class="cinematic-particles" id="cinematicParticles" aria-hidden="true"></div>
-<div id="opening" class="opening opening-v13" aria-label="Undangan Walimatulurus Syazwan dan Effa">
-  <div class="v13-backdrop" aria-hidden="true"></div>
-  <div class="v13-scenery-light" aria-hidden="true"></div>
-  <div class="v13-perimeter" aria-hidden="true"><span class="v13-perimeter-tl"></span><span class="v13-perimeter-tr"></span><span class="v13-perimeter-bl"></span><span class="v13-perimeter-br"></span></div>
-  <div class="v13-opening-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="open-card">
-    <div class="opening-frame" aria-hidden="true"></div>
-    <div class="v13-card-motif v13-card-motif-top" aria-hidden="true">❦</div>
-    <div class="v13-card-motif v13-card-motif-bottom" aria-hidden="true">❦</div>
-    <div class="v13-superscript"><span></span>Dengan penuh kesyukuran<span></span></div>
-    <div class="v13-monogram" aria-hidden="true"><span>S</span><b>✦</b><span>E</span></div>
-    <p class="eyebrow v13-eyebrow">Undangan Walimatulurus</p>
-    <h1 id="openNames">Syazwan <em>&amp;</em> Effa</h1>
-    <div class="v13-flourish" aria-hidden="true"><span></span><b>✧</b><span></span></div>
-    <p class="v13-message">Dengan segala hormatnya, kami menjemput anda ke hari istimewa kami</p>
-    <p id="openDate">2 Januari 2027</p>
-    <button id="openBtn" class="primary cinematic-open v13-open-button" type="button" aria-label="Buka undangan dan mainkan muzik">
-      <span class="v13-seal" aria-hidden="true"><span>✦</span></span><span class="v13-button-label">Buka Undangan</span><span class="v13-button-arrow" aria-hidden="true">↗</span>
+<!doctype html>
+<html lang="ms">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#e7efee" name="theme-color"/>
+  <title>
+   Walimatulurus | Syazwan &amp; Effa
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=DM+Sans:wght@400;500;600&amp;family=Great+Vibes&amp;family=Playfair+Display:wght@400;600&amp;family=Montserrat:wght@400;600&amp;family=Amiri&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&amp;family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&amp;family=Jost:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css?v=12" rel="stylesheet"/>
+  <link href="opening-cinematic-v13.css?v=13" rel="stylesheet"/>
+  <link href="main-invitation-v14.css?v=14" rel="stylesheet"/>
+  <link href="ecard-typography-v15.css?v=15" rel="stylesheet"/>
+  <link href="reference-mobile-v16.css?v=16" rel="stylesheet"/>
+  <meta content="#f0eee5" name="theme-color"/>
+  <meta content="website" property="og:type"/>
+  <meta content="ms_MY" property="og:locale"/>
+  <meta content="Walimatulurus Syazwan &amp; Effa &middot; 2 Januari 2027" property="og:title"/>
+  <meta content="Dengan segala hormatnya, jemputan istimewa ke majlis walimatulurus Syazwan &amp; Effa, 2 Januari 2027 di Bandar Baru Bangi." property="og:description"/>
+  <meta content="https://syazwan21-wed.github.io/syazwan-effa-wedding/whatsapp-preview-v16.jpg" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="https://syazwan21-wed.github.io/syazwan-effa-wedding/" property="og:url"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+ </head>
+ <body>
+  <div class="scene" id="scene">
+   <svg aria-hidden="true" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 1400">
+    <defs>
+     <lineargradient id="sky" x2="0" y2="1">
+      <stop stop-color="#d8e8e8">
+      </stop>
+      <stop offset=".55" stop-color="#e7f0e9">
+      </stop>
+      <stop offset="1" stop-color="#9ab6b0">
+      </stop>
+     </lineargradient>
+     <lineargradient id="water" x2="0" y2="1">
+      <stop stop-color="#b3cecb">
+      </stop>
+      <stop offset="1" stop-color="#749d9c">
+      </stop>
+     </lineargradient>
+    </defs>
+    <rect fill="url(#sky)" height="1400" width="1000">
+    </rect>
+    <g class="cloud">
+     <ellipse cx="210" cy="260" fill="#fff" opacity=".4" rx="230" ry="50">
+     </ellipse>
+     <ellipse cx="780" cy="390" fill="#fff" opacity=".35" rx="280" ry="65">
+     </ellipse>
+    </g>
+    <path d="M0 850L130 550 260 700 430 380 630 730 800 440 1000 790V1400H0Z" fill="#a7bcb2">
+    </path>
+    <path d="M0 870L230 650 320 720 480 510 620 760 800 570 1000 790V1400H0Z" fill="#718e85" opacity=".67">
+    </path>
+    <path d="M0 920Q260 870 500 910T1000 900V1400H0Z" fill="url(#water)">
+    </path>
+    <g class="ripples" fill="none" opacity=".27" stroke="#effaf2" stroke-width="3">
+     <path d="M50 1030Q320 1010 600 1030T1000 1020">
+     </path>
+     <path d="M-40 1110Q270 1090 580 1110T1040 1100">
+     </path>
+     <path d="M30 1210Q280 1190 530 1210T1000 1200">
+     </path>
+     <path d="M-40 1310Q300 1290 650 1310T1040 1300">
+     </path>
+    </g>
+    <path d="M0 960Q100 870 220 925L160 1400H0Z" fill="#547d72" opacity=".6">
+    </path>
+    <path d="M1000 980Q860 860 790 940L880 1400H1000Z" fill="#567e74" opacity=".6">
+    </path>
+   </svg>
+  </div>
+  <div aria-hidden="true" class="lake-shimmer">
+  </div>
+  <div aria-hidden="true" class="mist mist-one">
+  </div>
+  <div aria-hidden="true" class="mist mist-two">
+  </div>
+  <div aria-hidden="true" class="gold-dust">
+  </div>
+  <div class="veil" id="overlay">
+  </div>
+  <div aria-hidden="true" class="cinematic-cloud cloud-a">
+  </div>
+  <div aria-hidden="true" class="cinematic-cloud cloud-b">
+  </div>
+  <div aria-hidden="true" class="cinematic-particles" id="cinematicParticles">
+  </div>
+  <div aria-label="Undangan Walimatulurus Syazwan dan Effa" class="opening opening-v16" id="opening">
+   <div class="v16-cover">
+    <div aria-hidden="true" class="v16-cover-sky">
+    </div>
+    <img alt="" aria-hidden="true" class="v16-cover-arch" decoding="async" fetchpriority="high" src="floral-arch-v16.svg"/>
+    <div aria-hidden="true" class="v16-cover-shine">
+    </div>
+    <div class="v16-cover-content">
+     <div class="v16-cover-top">
+      <span class="v16-mini-ornament">
+       ✧
+      </span>
+      <p>
+       Walimatulurus
+      </p>
+      <span aria-hidden="true" class="v16-thin-rule">
+      </span>
+     </div>
+     <div aria-label="Syazwan dan Effa" class="v16-wax">
+      <div class="v16-wax-inside">
+       <span class="v16-wax-glyph">
+        ❦
+       </span>
+       <h1 id="openNames">
+        Syazwan
+        <em>
+         &amp;
+        </em>
+        Effa
+       </h1>
+       <span class="v16-wax-mini">
+        S
+        <i>
+         ✦
+        </i>
+        E
+       </span>
+      </div>
+     </div>
+     <div class="v16-cover-bottom">
+      <p class="v16-cover-message">
+       Dua hati, satu perjalanan
+      </p>
+      <p id="openDate">
+       2 Januari 2027
+      </p>
+      <button class="v16-open-button" id="openBtn" type="button">
+       <span aria-hidden="true">
+        ✦
+       </span>
+       Buka Undangan
+       <span aria-hidden="true">
+        &nearrow;
+       </span>
+      </button>
+      <small>
+       Ketuk untuk membuka bersama muzik ♫
+      </small>
+     </div>
+    </div>
+   </div>
+  </div>
+  <main class="site" id="site">
+   <section class="hero section reveal hero-v14 v16-hero" id="hero">
+    <div aria-hidden="true" class="v16-hero-border">
+    </div>
+    <div class="v16-hero-inner">
+     <p class="v16-hero-intro">
+      Dengan penuh kesyukuran
+     </p>
+     <div aria-hidden="true" class="v16-divider">
+      <span>
+       ❦
+      </span>
+     </div>
+     <p class="v16-walima">
+      Walimatulurus
+     </p>
+     <p class="v16-the-wedding">
+      The wedding of
+     </p>
+     <h1 class="names" id="names">
+      Syazwan
+      <em>
+       &amp;
+      </em>
+      Effa
+     </h1>
+     <p class="v16-union">
+      ✦ &nbsp; Dua hati menjadi satu &nbsp; ✦
+     </p>
+     <div aria-hidden="true" class="v16-date-rule">
+     </div>
+     <h2 class="hero-date" id="heroDate">
+      2 Januari 2027
+     </h2>
+     <p id="heroTime">
+      7:30 malam &ndash; 11:00 malam
+     </p>
+     <p class="v16-hero-venue">
+      Adam Hawa Event Hall &middot; Bandar Baru Bangi
+     </p>
+     <a class="v16-hero-scroll" href="#invitation">
+      <span>
+       Terokai Undangan
+      </span>
+      <span aria-hidden="true">
+       ⌄
+      </span>
+     </a>
+    </div>
+   </section>
+   <section class="section panel reveal v16-invitation" id="invitation">
+    <div class="v16-bismillah" dir="rtl" lang="ar">
+     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+    <span class="v16-small-label">
+     UNDANGAN WALIMATULURUS
+    </span>
+    <h2>
+     Dengan Segala Hormatnya
+    </h2>
+    <p class="prose" id="inviteText">
+    </p>
+    <div aria-hidden="true" class="v16-ornate-divider">
+     ✦
+    </div>
+    <p class="v16-invitation-note">
+     Semoga dengan kehadiran dan doa restu anda, majlis kami bertambah seri dan diberkati.
+    </p>
+    <a class="v16-text-link" href="#rsvp">
+     Sahkan Kehadiran &nbsp; &nearrow;
+    </a>
+   </section>
+   <section class="section panel reveal v16-countdown" id="countdown">
+    <p class="eyebrow">
+     Menghitung Hari Bahagia
+    </p>
+    <h2>
+     Detik Menuju Bahagia
+    </h2>
+    <div class="counter" id="counter">
+     <div>
+      <b>
+       --
+      </b>
+      <span>
+       Hari
+      </span>
+     </div>
+     <div>
+      <b>
+       --
+      </b>
+      <span>
+       Jam
+      </span>
+     </div>
+     <div>
+      <b>
+       --
+      </b>
+      <span>
+       Minit
+      </span>
+     </div>
+     <div>
+      <b>
+       --
+      </b>
+      <span>
+       Saat
+      </span>
+     </div>
+    </div>
+    <div class="v16-schedule">
+     <h3>
+      Atur Cara Majlis
+     </h3>
+     <div class="v16-timeline">
+      <div class="v16-event">
+       <time>
+        7:30 malam
+       </time>
+       <span class="v16-event-dot">
+       </span>
+       <p>
+        Majlis bermula
+       </p>
+      </div>
+      <div class="v16-event">
+       <time>
+        11:00 malam
+       </time>
+       <span class="v16-event-dot">
+       </span>
+       <p>
+        Majlis tamat
+       </p>
+      </div>
+     </div>
+    </div>
+    <button class="v16-action-outline" id="saveDateBtn" type="button">
+     ▦ &nbsp; Simpan Tarikh
     </button>
-    <small class="v13-audio-note"><span aria-hidden="true">♫</span> Ketuk untuk membuka bersama muzik</small>
-  </div>
-  <div class="v13-bottom-legend" aria-hidden="true"><span>✧</span> SYAZWAN &amp; EFFA <span>✧</span></div>
-  <div class="v13-reveal-light" aria-hidden="true"></div>
-</div>
-<main class="site" id="site"><section id="hero" class="hero section reveal hero-v14">
-  <div class="v14-hero-content">
-    <p class="v14-invite-overline">Dengan penuh kesyukuran</p>
-    <div class="v14-hero-flourish" aria-hidden="true">❦</div>
-    <p class="v14-hero-title-label">The Wedding Of</p>
-    <h1 id="names" class="names">Syazwan <em>&amp;</em> Effa</h1>
-    <div class="v14-divider" aria-hidden="true">✦</div>
-    <p class="v14-ceremony-label">Majlis Walimatulurus</p>
-    <div class="v14-date-card"><span class="v14-date-star" aria-hidden="true">✧</span><h2 id="heroDate" class="hero-date">2 Januari 2027</h2><span class="v14-date-star" aria-hidden="true">✧</span></div>
-    <p id="heroTime">7:30 malam – 11:00 malam</p>
-    <p class="v14-hero-message">Dengan tulus ikhlas, kami menjemput anda meraikan hari bahagia kami.</p>
-  </div>
-  <a class="v14-hero-scroll" href="#invitation" aria-label="Skrol ke undangan"><span>Terokai Undangan</span><span class="v14-arrow" aria-hidden="true">↓</span></a>
-</section>
-<section id="invitation" class="section panel reveal"><div class="ornament">✧</div><h2>Undangan Istimewa</h2><p id="inviteText" class="prose"></p></section>
-<section id="countdown" class="section panel reveal"><p class="eyebrow">Menghitung Hari Bahagia</p><h2>Detik Istimewa</h2><div class="counter" id="counter"><div><b>--</b><span>Hari</span></div><div><b>--</b><span>Jam</span></div><div><b>--</b><span>Minit</span></div><div><b>--</b><span>Saat</span></div></div></section>
-<section id="venue" class="section panel reveal"><p class="eyebrow">Lokasi Majlis</p><h2 id="venueName">Adam Hawa Event Hall</h2><p id="venueAddress"></p><p id="venueTime"></p><div class="actions"><a id="googleMaps" class="primary" target="_blank" rel="noopener noreferrer">Google Maps ↗</a><a id="waze" class="secondary" target="_blank" rel="noopener noreferrer">Waze ↗</a></div></section>
-<section id="rsvp" class="section panel reveal"><p class="eyebrow">Kehadiran Tetamu</p><h2>RSVP</h2><p>Sila sahkan kehadiran anda.</p><form id="rsvpForm"><label>Nama penuh<input name="name" maxlength="100" required placeholder="Nama anda"></label><label>Adakah anda hadir?<select name="attendance"><option value="yes">Insya-Allah hadir</option><option value="no">Maaf, tidak dapat hadir</option></select></label><label>Bilangan tetamu (termasuk anda)<input type="number" name="pax" min="0" max="20" value="1" required></label><label>Nota (pilihan)<textarea name="note" maxlength="500" placeholder="Catatan untuk pengantin"></textarea></label><button class="primary" type="submit">Hantar RSVP</button><p class="status" id="rsvpStatus" role="status"></p></form></section>
-<section id="wishes" class="section panel reveal"><p class="eyebrow">Ucapan & Doa</p><h2>Titipan Kasih</h2><form id="wishForm"><label>Nama<input name="name" maxlength="100" required></label><label>Ucapan<textarea name="message" maxlength="700" required placeholder="Semoga berbahagia hingga ke syurga..."></textarea></label><button class="primary" type="submit">Kirim Ucapan</button><p class="status" id="wishStatus" role="status"></p></form><div id="wishList" class="wish-list"></div></section>
-<section id="donation" class="section panel reveal"><p class="eyebrow">Tanda Ingatan</p><h2>Sumbangan Ikhlas</h2><p id="donationText"></p><img id="donationQR" class="qr" hidden alt="Kod QR sumbangan"><p id="donationAccount" class="muted"></p></section>
-<section id="gifts" class="section panel reveal"><p class="eyebrow">Hadiah Perkahwinan</p><h2>Wedding Wishlist</h2><p>Jika ingin memberi hadiah, berikut beberapa cadangan daripada kami.</p><div id="giftList" class="gift-list"></div></section>
-<section id="closing" class="section panel reveal"><div class="ornament">❦</div><h2>Terima Kasih</h2><p id="closingText"></p><p class="signature" id="closingNames">Syazwan & Effa</p></section></main>
-<nav class="bottom-nav" aria-label="Navigasi"><a href="#hero" title="Utama">⌂<span>Utama</span></a><a href="#venue" title="Lokasi">⌖<span>Lokasi</span></a><a href="#rsvp" title="RSVP">✓<span>RSVP</span></a><a href="#wishes" title="Ucapan">♡<span>Ucapan</span></a><button id="musicBtn" title="Main / henti muzik">♫<span>Muzik</span></button><a href="admin.html" title="Admin" class="admin-link">⚙<span>Admin</span></a></nav>
-<audio id="song" preload="none" loop></audio><script src="config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="shared.js"></script><script src="guest.js"></script><script src="opening-start-v13-1.js?v=131"></script><script src="cinematic-effects.js?v=12" defer></script></body></html>
+   </section>
+   <section class="section panel reveal v16-venue" id="venue">
+    <div aria-hidden="true" class="v16-map-emblem">
+     &target;
+    </div>
+    <p class="eyebrow">
+     Lokasi Majlis
+    </p>
+    <h2 id="venueName">
+     Adam Hawa Event Hall
+    </h2>
+    <p id="venueAddress">
+    </p>
+    <p id="venueTime">
+    </p>
+    <div class="actions">
+     <a class="primary" id="googleMaps" rel="noopener noreferrer" target="_blank">
+      Google Maps &nearrow;
+     </a>
+     <a class="secondary" id="waze" rel="noopener noreferrer" target="_blank">
+      Waze &nearrow;
+     </a>
+    </div>
+    <p class="v16-venue-tip">
+     Ketuk butang lokasi untuk navigasi terus dari telefon anda.
+    </p>
+   </section>
+   <section class="section panel reveal v16-rsvp" id="rsvp">
+    <p class="eyebrow">
+     Kehadiran Tetamu
+    </p>
+    <h2>
+     RSVP &amp; Kehadiran
+    </h2>
+    <p>
+     Sila sahkan kehadiran anda.
+    </p>
+    <form id="rsvpForm">
+     <label>
+      Nama penuh
+      <input maxlength="100" name="name" placeholder="Nama anda" required=""/>
+     </label>
+     <label>
+      Adakah anda hadir?
+      <select name="attendance">
+       <option value="yes">
+        Insya-Allah hadir
+       </option>
+       <option value="no">
+        Maaf, tidak dapat hadir
+       </option>
+      </select>
+     </label>
+     <label>
+      Bilangan tetamu (termasuk anda)
+      <input max="20" min="0" name="pax" required="" type="number" value="1"/>
+     </label>
+     <label>
+      Nota (pilihan)
+      <textarea maxlength="500" name="note" placeholder="Catatan untuk pengantin"></textarea>
+     </label>
+     <button class="primary" type="submit">
+      ✉  Hantar RSVP
+     </button>
+     <p class="status" id="rsvpStatus" role="status">
+     </p>
+    </form>
+   </section>
+   <section class="section panel reveal v16-wishes" id="wishes">
+    <p class="eyebrow">
+     Ucapan &amp; Doa
+    </p>
+    <h2>
+     Ucapan &amp; Doa
+    </h2>
+    <form id="wishForm">
+     <label>
+      Nama
+      <input maxlength="100" name="name" required=""/>
+     </label>
+     <label>
+      Ucapan
+      <textarea maxlength="700" name="message" placeholder="Semoga berbahagia hingga ke syurga..." required=""></textarea>
+     </label>
+     <button class="primary" type="submit">
+      Kirim Ucapan
+     </button>
+     <p class="status" id="wishStatus" role="status">
+     </p>
+    </form>
+    <div class="wish-list" id="wishList">
+    </div>
+   </section>
+   <section class="section panel reveal v16-donation" id="donation">
+    <p class="eyebrow">
+     Tanda Ingatan
+    </p>
+    <h2>
+     Sumbangan Ikhlas
+    </h2>
+    <p id="donationText">
+    </p>
+    <img alt="Kod QR sumbangan" class="qr" hidden="" id="donationQR"/>
+    <p class="muted" id="donationAccount">
+    </p>
+   </section>
+   <section class="section panel reveal v16-gifts" id="gifts">
+    <p class="eyebrow">
+     Hadiah Perkahwinan
+    </p>
+    <h2>
+     Hadiah Buat Pengantin
+    </h2>
+    <p>
+     Jika ingin memberi hadiah, berikut beberapa cadangan daripada kami.
+    </p>
+    <div class="gift-list" id="giftList">
+    </div>
+   </section>
+   <section class="section panel reveal v16-closing" id="closing">
+    <div class="ornament">
+     ❦
+    </div>
+    <h2>
+     Terima Kasih
+    </h2>
+    <p id="closingText">
+    </p>
+    <p class="signature" id="closingNames">
+     Syazwan &amp; Effa
+    </p>
+    <p aria-hidden="true" class="v16-final-flourish">
+     ❦
+    </p>
+    <button class="v16-share-button" id="shareInvite" type="button">
+     ♡ &nbsp; Kongsi di WhatsApp
+    </button>
+   </section>
+  </main>
+  <nav aria-label="Navigasi jemputan" class="bottom-nav v16-nav">
+   <a aria-label="Utama" href="#hero" title="Utama">
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+     <path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z">
+     </path>
+    </svg>
+    <span>
+     Utama
+    </span>
+   </a>
+   <button aria-label="Muzik" id="musicBtn" title="Main atau jeda muzik" type="button">
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+     <path d="M9 18V5l12-2v13M9 9l12-2">
+     </path>
+     <ellipse cx="6" cy="18" rx="3" ry="2">
+     </ellipse>
+     <ellipse cx="18" cy="16" rx="3" ry="2">
+     </ellipse>
+    </svg>
+    <span>
+     Muzik
+    </span>
+   </button>
+   <a aria-label="Lokasi" href="#venue" title="Lokasi">
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+     <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z">
+     </path>
+     <circle cx="12" cy="10" r="2.5">
+     </circle>
+    </svg>
+    <span>
+     Lokasi
+    </span>
+   </a>
+   <a aria-label="Hadiah" href="#gifts" title="Hadiah">
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+     <path d="M3 9h18v12H3zM2 6h20v4H2zM12 6v15M12 6C6-2 2 3 6 6h6Zm0 0c6-8 10-3 6 0h-6Z">
+     </path>
+    </svg>
+    <span>
+     Hadiah
+    </span>
+   </a>
+   <a aria-label="RSVP" href="#rsvp" title="RSVP">
+    <svg aria-hidden="true" viewbox="0 0 24 24">
+     <path d="M4 4h16v16H4zM7 8h10M7 12h7M7 16l2 2 4-4">
+     </path>
+    </svg>
+    <span>
+     RSVP
+    </span>
+   </a>
+  </nav>
+  <audio id="song" loop="" preload="none">
+  </audio>
+  <script src="config.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js">
+  </script>
+  <script src="shared.js">
+  </script>
+  <script src="guest.js">
+  </script>
+  <script src="opening-start-v13-1.js?v=131">
+  </script>
+  <script defer="" src="cinematic-effects.js?v=12">
+  </script>
+  <script defer="" src="reference-mobile-v16.js?v=16">
+  </script>
+ </body>
+</html>
