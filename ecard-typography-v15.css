@@ -1,0 +1,186 @@
+/* SYAZWAN & EFFA · V15 — Pearl & Gold Typography
+   Depends on V12 base + V13 opening + V14 invitation styles.
+   This file changes PRESENTATION ONLY; it does not modify forms, URLs,
+   database access, fog, music, or the invitation opening behavior.
+   For quick font editing, change these three font variables. */
+:root {
+  --v15-script:'Alex Brush','Great Vibes',cursive;
+  --v15-display:'Bodoni Moda','Cormorant Garamond',Georgia,serif;
+  --v15-body:'Jost','DM Sans',Arial,sans-serif;
+  --v15-ink:#365047;
+  --v15-gold:#a37b42;
+  --v15-gold-light:#d6b780;
+}
+/* Body copy is consistently legible, and still respects inherited accent. */
+body {font-family:var(--v15-body);font-size:15px;letter-spacing:.006em}
+#site .eyebrow, #site .v14-invite-overline, #site .v14-ceremony-label,
+#site .v14-hero-scroll, #site form label,
+#site .counter span, .bottom-nav, #site .primary, #site .secondary {
+  font-family:var(--v15-body);
+}
+/* Signature calligraphy: preserve existing metallic gradient animations. */
+#site #names.names,
+#opening.opening-v13 #openNames,
+#site #closing .signature {
+  font-family:var(--v15-script)!important;
+  font-weight:400!important;
+  letter-spacing:.005em!important;
+  text-transform:none;
+}
+#site #names.names {
+  font-size:clamp(60px,14.4vw,102px)!important;
+  line-height:1.13!important;
+  padding-inline:9px!important;
+  margin-bottom:2px!important;
+  text-wrap:balance;
+}
+#site #names.names em {font-size:.47em!important;line-height:.86!important;margin:-3px 0 4px!important}
+#opening.opening-v13 #openNames {
+  font-size:clamp(59px,13.8vw,79px)!important;
+  line-height:1.05!important;
+}
+#opening.opening-v13 #openNames em {font-size:.51em!important;margin:-4px 0 0!important}
+#site #closing .signature {
+  font-size:clamp(43px,10vw,58px)!important;
+  line-height:1.3;
+}
+/* New refined type system for dates, headings and Malay invitation copy. */
+#site .panel h2,
+#site #heroDate.hero-date,
+#site #heroTime,
+#site .v14-hero-title-label,
+#site #countdown .counter b,
+#opening.opening-v13 #openDate {
+  font-family:var(--v15-display)!important;
+}
+#site .panel h2 {
+  font-weight:500!important;
+  letter-spacing:-.035em;
+  font-size:clamp(32px,8.3vw,46px)!important;
+  line-height:1.18!important;
+  color:#98703e;
+}
+#site #heroDate.hero-date {
+  font-weight:500!important;
+  font-size:clamp(29px,7vw,40px)!important;
+  letter-spacing:-.025em;
+  color:#946d3a;
+}
+#site #heroTime {
+  font-size:clamp(15px,4.2vw,19px)!important;
+  font-weight:500;letter-spacing:.035em;
+  color:#586b5e;
+}
+#site .v14-hero-title-label {
+  font-size:clamp(12px,3vw,15px)!important;
+  letter-spacing:.26em!important;
+  color:#7e735e;
+}
+#site #invitation .prose {
+  font-family:var(--v15-display)!important;
+  font-weight:400!important;
+  font-size:clamp(16px,4.1vw,19px)!important;
+  line-height:1.93!important;
+  letter-spacing:.006em;
+  color:#385149!important;
+}
+#site .v14-hero-message {
+  font-family:var(--v15-display)!important;
+  font-style:italic;
+  font-size:clamp(14px,3.5vw,17px)!important;
+  line-height:1.78;
+  color:#53645a;
+}
+#site .panel p:not(.eyebrow):not(.status):not(.prose) {
+  font-family:var(--v15-body);
+  font-size:clamp(13px,3.3vw,14px)!important;
+  line-height:1.87;
+  letter-spacing:.005em;
+}
+#site .panel .eyebrow {
+  font-size:10px;letter-spacing:.23em;
+}
+/* Gold hairlines and paper: softly dimensional, not busy. */
+#site .hero-v14::before {
+  background:radial-gradient(ellipse 62% 57% at 50% 49%,
+    rgba(255,253,244,.90) 0%,rgba(255,253,244,.72) 50%,
+    rgba(255,253,244,.14) 79%,transparent 100%);
+}
+#site .hero-v14::after {
+  border:1px solid rgba(161,120,62,.55);
+  box-shadow:inset 0 0 0 6px rgba(255,251,239,.21),
+             0 0 0 1px rgba(255,248,222,.2),
+             0 15px 50px rgba(25,57,49,.05);
+}
+#site .v14-hero-flourish {font-size:22px;color:var(--v15-gold);opacity:.82}
+#site .v14-divider {color:#b58e55;gap:10px;margin-top:12px;margin-bottom:14px}
+#site .v14-divider::before,#site .v14-divider::after {
+  background:linear-gradient(90deg,transparent,rgba(156,114,57,.62));
+}
+#site .panel {
+  border:1px solid rgba(168,129,73,.5);
+  background:linear-gradient(148deg,
+    rgba(255,254,249,.95),rgba(255,250,239,.88) 55%,rgba(252,248,234,.9));
+  box-shadow:0 15px 50px rgba(41,69,57,.16),
+             inset 0 0 0 5px rgba(255,255,255,.33),
+             inset 0 0 0 6px rgba(172,134,72,.075);
+}
+#site .panel::before,#site .panel::after {color:#b08b52;font-size:17px}
+#site .panel h2::after {height:1px;width:93px;margin-top:17px;opacity:.7}
+#site #invitation {background:linear-gradient(155deg,rgba(255,252,242,.97),rgba(253,247,233,.91))}
+#site #countdown .counter>div {
+  background:rgba(255,253,248,.75);
+  border:1px solid rgba(175,136,78,.48);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.35);
+  border-radius:11px;
+}
+#site #countdown .counter b {font-size:clamp(26px,6.4vw,36px)!important;font-weight:500}
+#site #countdown .counter span {font-size:10px;letter-spacing:.07em}
+/* Improve form styling without touching input names/validation/submission. */
+#site .panel form {gap:16px}
+#site .panel form label {font-size:12px;font-weight:500;letter-spacing:.035em;color:#506457}
+#site .panel input,#site .panel textarea,#site .panel select {
+  font-family:var(--v15-body);
+  font-size:16px; /* iOS: avoid automatic zoom when focusing fields */
+  line-height:1.4;
+  padding:13px 15px;
+  color:#304a41;
+  border-radius:10px;
+  border:1px solid rgba(171,139,89,.53);
+  background:rgba(255,255,254,.81);
+  box-shadow:inset 0 1px 3px rgba(63,72,60,.025);
+}
+#site .panel input:focus-visible,#site .panel select:focus-visible,
+#site .panel textarea:focus-visible {outline:2px solid #a47d49;outline-offset:2px}
+#site .panel form button.primary,#site .actions a.primary {
+  background:linear-gradient(110deg,#856435,#b99357 48%,#96723d);
+  color:#fffdf5;
+  border:1px solid #b99763;
+  box-shadow:0 7px 22px rgba(114,88,44,.20);
+  letter-spacing:.1em;
+  font-weight:500;
+}
+#site .panel .secondary {background:rgba(255,252,245,.9);border:1px solid #ac8c58;color:#8c6e43}
+#site .wish,#site .gift {background:rgba(255,255,252,.8);border:1px solid rgba(169,135,82,.31)}
+#site #venueName {font-size:clamp(29px,7.4vw,42px)!important;overflow-wrap:anywhere}
+#site #donationQR {border-radius:13px;border:6px solid #fffdf5;box-shadow:0 0 0 1px rgba(170,127,66,.22),0 10px 30px rgba(40,75,55,.12)}
+#site .signature {text-shadow:0 2px 18px rgba(255,255,255,.75)}
+/* Keep the previously approved opening choreography. Change only its lettering. */
+#opening.opening-v13 .v13-message {font-family:var(--v15-display);line-height:1.4}
+#opening.opening-v13 .v13-monogram,
+#opening.opening-v13 .v13-superscript {font-family:var(--v15-display)}
+#opening.opening-v13 .v13-open-button {font-family:var(--v15-body)!important}
+/* Preserve layout on shorter phones. */
+@media(max-width:390px) {
+  #site #names.names {font-size:clamp(56px,13.5vw,74px)!important}
+  #site .panel {padding-inline:clamp(17px,5vw,27px)}
+  #site .v14-hero-message {max-width:245px}
+}
+@media(max-height:700px) {
+  #site #names.names {font-size:clamp(51px,11.5vw,75px)!important}
+  #site .v14-divider {margin:6px auto 7px}
+  #site .v14-hero-message {margin-top:2px}
+}
+@media(prefers-reduced-motion:reduce) {
+  #site .v14-hero-scroll .v14-arrow {animation:none}
+}
