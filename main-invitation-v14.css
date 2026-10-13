@@ -1,0 +1,178 @@
+/* Syazwan & Effa — V14 Editorial Invitation
+   Scoped to the main invitation; the V13.1 opening is untouched.
+   Keeps --accent, --font-title and admin-provided text/settings. */
+
+/* A calm, legible editorial layout over the existing mountain artwork. */
+#site.site {
+  width:100%; max-width:590px;
+  padding-inline:clamp(16px,4.5vw,32px);
+  padding-bottom:132px;
+}
+#site .hero-v14 {
+  isolation:isolate;
+  min-height:100svh;
+  position:relative;
+  padding:clamp(28px,5svh,55px) 7px clamp(78px,12svh,108px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:0;
+}
+/* Soft center-only scrim protects text without hiding the mountains. */
+#site .hero-v14::before {
+  content:""; position:absolute; inset:5% -12% 9%; z-index:-1;
+  background:radial-gradient(ellipse 65% 53% at 50% 48%,
+    rgba(255,252,241,.91) 0%,rgba(255,252,241,.70) 52%,
+    rgba(255,252,241,.18) 76%,transparent 100%);
+  pointer-events:none;
+}
+#site .hero-v14::after {
+  content:""; position:absolute; inset:clamp(20px,4svh,36px) 0 clamp(83px,12svh,110px);
+  border:1px solid rgba(165,128,74,.43);
+  border-radius:180px 180px 20px 20px / 66px 66px 20px 20px;
+  box-shadow:inset 0 0 0 7px rgba(255,251,239,.22),0 0 22px rgba(255,252,238,.18);
+  pointer-events:none; z-index:-1;
+}
+#site .v14-hero-content {width:100%;max-width:450px;display:flex;flex-direction:column;align-items:center;gap:0}
+#site .v14-invite-overline {
+  font-family:var(--font-body,'DM Sans',sans-serif);
+  color:var(--accent,#a48551);
+  font-size:clamp(9px,2.5vw,11px);font-weight:600;letter-spacing:.29em;
+  text-transform:uppercase;margin:0 0 7px;
+  text-shadow:0 1px 6px #fff;
+}
+#site .v14-hero-flourish {display:flex;gap:12px;align-items:center;justify-content:center;
+  margin:12px 0 7px;color:var(--accent,#a48551);font-size:19px;opacity:.9}
+#site .v14-hero-flourish::before,#site .v14-hero-flourish::after {
+  content:"";height:1px;width:49px;
+  background:linear-gradient(90deg,transparent,var(--accent,#a48551));opacity:.58;
+}
+#site .v14-hero-flourish::after{transform:rotate(180deg)}
+#site .v14-hero-title-label {font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(13px,3vw,16px);font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:#7f785e;margin:4px 0 9px}
+#site #names.names {
+  max-width:100%;margin:0 0 3px!important;padding:0 4px 8px;
+  font-size:clamp(56px,13.6vw,91px)!important;line-height:1.18!important;
+  filter:drop-shadow(0 2px 5px rgba(255,255,255,.83));
+}
+#site #names.names em {margin:0 0 3px!important;line-height:.78;font-size:.53em}
+#site .v14-divider {display:flex;align-items:center;justify-content:center;gap:15px;
+  width:min(84%,305px);margin:11px auto 15px;color:var(--accent,#a48551);
+  font-size:12px}
+#site .v14-divider::before,#site .v14-divider::after {
+  content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(165,128,74,.75))}
+#site .v14-divider::after{transform:rotate(180deg)}
+#site .v14-ceremony-label {color:#746e5c;font-size:11px;letter-spacing:.27em;
+  font-weight:600;margin:0 0 4px;text-transform:uppercase}
+#site .v14-date-card {display:flex;align-items:center;justify-content:center;gap:14px;
+  width:100%;margin:8px 0 6px}
+#site .v14-date-star {color:var(--accent,#a48551);font-size:12px;opacity:.64}
+#site #heroDate.hero-date {
+  margin:0!important;font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(31px,7.4vw,42px)!important;line-height:1.06!important;
+  font-weight:600;letter-spacing:.018em;
+  text-shadow:0 2px 12px rgba(255,255,255,.92);
+}
+#site #heroTime {font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(19px,5.2vw,24px);font-weight:500;
+  letter-spacing:.07em;color:#5b6257;text-shadow:0 1px 10px #fff;
+  margin:5px 0 10px}
+#site .v14-hero-message {max-width:275px;line-height:1.75;
+  color:#6b6a5c;font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(16px,4vw,19px);font-style:italic;margin:8px 0 0}
+#site .v14-hero-scroll {position:absolute;bottom:clamp(24px,5svh,44px);
+  left:50%;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:5px;text-decoration:none;color:#8b754c;
+  text-transform:uppercase;letter-spacing:.18em;font-size:9px;font-weight:600;
+  white-space:nowrap;z-index:1}
+#site .v14-hero-scroll .v14-arrow {font-size:20px;line-height:1;
+  animation:v14-arrow-quiet 2.8s ease-in-out infinite}
+@keyframes v14-arrow-quiet {50%{transform:translateY(5px);opacity:.5}}
+
+/* Editorial card system: lightweight gold contours and warm paper. */
+#site .panel {
+  border-radius:18px;
+  margin:0 0 32px;
+  padding:clamp(33px,7vw,47px) clamp(20px,6vw,38px);
+  background:linear-gradient(157deg,rgba(255,253,247,.91),rgba(255,250,238,.82));
+  border:1px solid rgba(173,137,81,.40);
+  box-shadow:0 14px 52px rgba(52,77,65,.15),inset 0 0 0 5px rgba(255,255,255,.25);
+  -webkit-backdrop-filter:blur(13px);backdrop-filter:blur(13px);
+}
+#site .panel:before,#site .panel:after {
+  color:var(--accent,#a48551);position:absolute;font-size:18px;font-weight:400;
+  opacity:.56;text-shadow:none;
+}
+#site .panel:before {content:"✧";top:12px;left:16px}
+#site .panel:after {content:"✧";bottom:11px;right:16px}
+#site .panel .eyebrow {font-size:10px;line-height:1.7;letter-spacing:.26em;
+  font-weight:600;color:var(--accent,#a48551);margin:0 0 6px}
+#site .panel h2 {
+  font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(36px,8.8vw,49px);line-height:1.09;
+  font-weight:500;color:var(--accent,#a48551);margin:8px 0 18px;
+  text-wrap:balance;text-shadow:0 2px 12px rgba(255,255,255,.65)
+}
+#site .panel h2::after{content:"";display:block;width:75px;height:1px;margin:15px auto 0;
+  background:linear-gradient(90deg,transparent,var(--accent,#a48551),transparent);opacity:.75}
+#site .panel p:not(.eyebrow):not(.status) {font-size:14px;line-height:1.85;color:#4c6056}
+#site #invitation {
+  background:linear-gradient(152deg,rgba(255,253,244,.95),rgba(255,248,234,.88));
+  border:1px solid rgba(170,135,78,.55);padding-top:45px;padding-bottom:47px;
+}
+#site #invitation > .ornament {font-size:30px;margin:0 0 10px}
+#site #invitation .prose {
+  font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(18px,4.3vw,21px)!important;
+  line-height:1.85!important;font-weight:500;
+  color:#4f5e54;max-width:420px;margin:15px auto 2px;
+  white-space:pre-line;overflow-wrap:anywhere;
+}
+/* Support long dynamically-loaded venue names and editable admin content. */
+#site #venueName {overflow-wrap:anywhere}
+#site #venueAddress{max-width:410px;margin:0 auto 8px}
+#site #venueTime{color:#846f4e!important;font-weight:600}
+#site #venue .actions {gap:10px;margin-top:23px}
+#site #venue .actions a {font-weight:600;min-width:132px;padding:12px 19px}
+#site #countdown .counter {gap:8px;margin-top:20px}
+#site #countdown .counter > div {
+  border-radius:12px;background:rgba(255,253,246,.6);
+  border:1px solid rgba(165,128,74,.38);padding:13px 4px;
+}
+#site #countdown .counter b {font-family:var(--font-title,'Cormorant Garamond',serif);
+  font-size:clamp(28px,7vw,37px);font-weight:600;line-height:1.1}
+#site #countdown .counter span {display:block;margin-top:3px;letter-spacing:.08em}
+#site .panel form {gap:13px;margin-top:24px}
+#site .panel form label {font-size:12px;color:#5f6459;letter-spacing:.02em}
+#site .panel input,#site .panel textarea,#site .panel select {
+  border:1px solid rgba(166,146,115,.50);background:rgba(255,255,255,.76);
+  color:#34483e;border-radius:9px;
+}
+#site .panel input:focus-visible,#site .panel textarea:focus-visible,
+#site .panel select:focus-visible {outline:2px solid var(--accent,#a48551);outline-offset:2px}
+#site .panel .primary {border-radius:999px;font-weight:600}
+#site #closing {margin-bottom:18px}
+#site #closing .signature {margin-top:28px!important;font-family:'Great Vibes',cursive;
+  font-size:clamp(36px,9vw,46px)!important;color:var(--accent,#a48551)!important}
+@media(min-width:700px){#site .panel{margin-bottom:40px}}
+@media(max-width:390px){
+  #site.site{padding-inline:16px}
+  #site .hero-v14{padding-inline:9px}
+  #site #names.names{font-size:clamp(52px,13.3vw,75px)!important}
+  #site .v14-hero-message{max-width:235px}
+  #site .v14-hero-title-label{font-size:13px}
+  #site .v14-hero-flourish{margin-top:7px}
+}
+@media(max-height:700px){
+  #site .hero-v14 {padding-top:20px;padding-bottom:62px}
+  #site .hero-v14::after {inset:12px 0 56px}
+  #site #names.names{font-size:clamp(49px,12vw,72px)!important}
+  #site .v14-hero-flourish{margin:3px 0}
+  #site .v14-divider{margin:5px auto 9px}
+  #site .v14-hero-scroll{bottom:12px}
+  #site .v14-hero-message{margin:0}
+}
+@media(prefers-reduced-motion:reduce){#site .v14-hero-scroll .v14-arrow{animation:none!important}}
+.animation-none #site .v14-hero-scroll .v14-arrow{animation:none!important}
