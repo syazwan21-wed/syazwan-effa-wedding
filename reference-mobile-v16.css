@@ -117,3 +117,129 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:ra
 @media(max-width:360px){#site.site{padding-inline:14px!important}.v16-cover-content{padding-left:43px;padding-right:43px}.v16-cover-top p{font-size:17px!important}#opening.opening-v16 #openBtn.v16-open-button{padding:11px 13px;font-size:14px}#site #hero.v16-hero{padding-inline:17px!important}#site .panel{padding:34px 18px!important}.v16-event{grid-template-columns:90px 16px 1fr}.bottom-nav.v16-nav span{font-size:9px!important}}
 @media(min-width:700px){#site.site{box-shadow:0 0 75px rgba(56,72,68,.09)}.v16-cover-content{padding-top:clamp(105px,14vh,170px)}}
 @media(prefers-reduced-motion:reduce){.v16-cover-sky,.v16-wax,.v16-cover-top,.v16-cover-bottom,.v16-hero-scroll span:last-child{animation:none!important}.v16-wax,.v16-cover-top,.v16-cover-bottom{opacity:1!important;transform:none!important}}
+
+
+/* V16.1 — user requested floral-column background for inner pages and a closer cover button.
+   This file replaces the earlier V16 CSS entirely. */
+#site .section:not(.hero){
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(252,249,241,.90),rgba(251,247,238,.91)),
+    url("other-pages-background-v16-1.jpg") center/cover no-repeat !important;
+  border-color:rgba(188,172,137,.55)!important;
+  box-shadow:0 12px 35px rgba(79,94,82,.10), inset 0 0 0 1px rgba(255,255,255,.32);
+}
+#site .section:not(.hero)::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.08) 38%,rgba(245,239,230,.18));
+  pointer-events:none; z-index:0;
+}
+#site .section:not(.hero) > *{position:relative; z-index:1}
+#site .section:not(.hero) h2,
+#site .section:not(.hero) h3,
+#site .section:not(.hero) .v16-small-label,
+#site .section:not(.hero) .v16-bismillah,
+#site .section:not(.hero) .v16-walima,
+#site .section:not(.hero) .prose,
+#site .section:not(.hero) p,
+#site .section:not(.hero) li,
+#site .section:not(.hero) #venueAddress,
+#site .section:not(.hero) .status{ text-shadow:0 1px 0 rgba(255,255,255,.58); }
+
+/* Stronger visual separation for cards inside background sections */
+#site .section:not(.hero) .gift,
+#site .section:not(.hero) .wish,
+#site .section:not(.hero) .card,
+#site .section:not(.hero) .panel,
+#site .section:not(.hero) form,
+#site .section:not(.hero) .counter > div,
+#site .section:not(.hero) .v16-action-outline,
+#site .section:not(.hero) .primary,
+#site .section:not(.hero) .secondary{
+  position:relative;
+  z-index:1;
+}
+#site .section:not(.hero) form,
+#site .section:not(.hero) .gift,
+#site .section:not(.hero) .wish{
+  background:rgba(255,252,245,.70);
+  backdrop-filter: blur(2px);
+}
+
+/* Cover button closer to the shared video reference */
+#opening.opening-v16 #openBtn.v16-open-button{
+  position:relative;
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:58px;
+  width:min(100%, 282px);
+  padding:14px 24px!important;
+  border-radius:999px!important;
+  border:1.35px solid rgba(230,214,169,.92)!important;
+  color:#fffaf0!important;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,245,212,.34), transparent 42%),
+    linear-gradient(180deg,#caa76b 0%, #b48b4e 18%, #8b6639 54%, #6f4f29 100%)!important;
+  box-shadow:
+    0 0 0 1px rgba(255,243,214,.16) inset,
+    0 8px 18px rgba(108,78,36,.32),
+    0 0 18px rgba(234,203,132,.26);
+  overflow:hidden;
+  text-transform:none!important;
+  letter-spacing:.02em!important;
+}
+#opening.opening-v16 #openBtn.v16-open-button::before{
+  content:"";
+  position:absolute; inset:2px;
+  border-radius:999px;
+  border:1px solid rgba(255,240,198,.58);
+  pointer-events:none;
+}
+#opening.opening-v16 #openBtn.v16-open-button::after{
+  content:"";
+  position:absolute;
+  left:14px; right:14px; top:7px; height:42%;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,0));
+  pointer-events:none;
+}
+#opening.opening-v16 #openBtn .v16-open-button__label{
+  font-family:var(--v16-serif)!important;
+  font-size:18px!important;
+  font-weight:500;
+  letter-spacing:.02em;
+  text-shadow:0 1px 0 rgba(80,52,19,.34);
+}
+#opening.opening-v16 #openBtn .v16-open-button__flourish,
+#opening.opening-v16 #openBtn .v16-open-button__arrow{
+  position:relative; z-index:1;
+  color:#f4e0a7;
+  text-shadow:0 0 10px rgba(255,233,168,.28);
+}
+#opening.opening-v16 #openBtn .v16-open-button__flourish{font-size:15px; opacity:.95}
+#opening.opening-v16 #openBtn .v16-open-button__arrow{font-size:16px}
+#opening.opening-v16 #openBtn .v16-open-button__flourish--left{transform:translateY(-1px)}
+#opening.opening-v16 #openBtn:hover,
+#opening.opening-v16 #openBtn:focus-visible{
+  transform:translateY(-1px) scale(1.012);
+  box-shadow:
+    0 0 0 1px rgba(255,243,214,.22) inset,
+    0 12px 22px rgba(108,78,36,.36),
+    0 0 24px rgba(241,210,138,.35);
+}
+@keyframes v16ButtonPulse{
+  0%,100%{box-shadow:0 0 0 1px rgba(255,243,214,.16) inset,0 8px 18px rgba(108,78,36,.32),0 0 18px rgba(234,203,132,.22)}
+  50%{box-shadow:0 0 0 1px rgba(255,243,214,.22) inset,0 10px 22px rgba(108,78,36,.38),0 0 26px rgba(247,221,156,.38)}
+}
+#opening.opening-v16 #openBtn.v16-open-button{animation:v16ButtonPulse 3.2s ease-in-out infinite}
+
+/* Slightly stronger contrast over the floral background on small screens */
+@media(max-width:480px){
+  #site .section:not(.hero){
+    background-position:center center!important;
+  }
+}
